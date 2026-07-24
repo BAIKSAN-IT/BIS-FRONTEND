@@ -1,0 +1,398 @@
+//
+// calendar.scss
+//
+
+.calendar {
+    float: left;
+    margin-bottom: 0;
+}
+
+.fc-view {
+    margin-top: 30px;
+}
+
+.none-border {
+    .modal-footer {
+        border-top: none;
+    }
+}
+
+.fc-toolbar {
+    margin: 6px 0 5px 0 !important;
+
+    h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.875rem;
+        text-transform: uppercase;
+    }
+}
+
+.fc-day-grid-event {
+    .fc-time {
+        font-weight: $font-weight-semibold;
+    }
+}
+
+th.fc-day-header {
+    padding: 0.5rem 0;
+}
+
+.fc-day {
+    background: transparent;
+}
+
+.fc-toolbar {
+    .fc-state-active,
+    .ui-state-active,
+    button:focus,
+    button:hover,
+    .ui-state-hover {
+        z-index: 0;
+    }
+}
+
+.fc {
+    th.fc-widget-header {
+        background: var(--#{$prefix}gray-100);
+        font-size: 13px;
+        line-height: 20px;
+        padding: 10px 0;
+        text-transform: uppercase;
+        font-weight: $font-weight-semibold;
+    }
+    .fc-daygrid-body,
+    .fc-scrollgrid-section-body table,
+    .fc-scrollgrid-section-footer table {
+        width: 100% !important;
+    }
+}
+
+.fc-unthemed {
+    th,
+    td,
+    thead,
+    tbody,
+    .fc-divider,
+    .fc-row,
+    .fc-popover {
+        border-color: var(--#{$prefix}gray-100);
+    }
+
+    td.fc-today,
+    .fc-divider {
+        background: var(--#{$prefix}gray-100);
+    }
+}
+
+.fc-button {
+    background: var(--#{$prefix}gray-100);
+    border: none;
+    color: var(--#{$prefix}secondary-text);
+    text-transform: capitalize;
+    box-shadow: none;
+    border-radius: 3px;
+    margin: 0 3px;
+    padding: 6px 12px;
+    height: auto;
+}
+
+.fc-text-arrow {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.fc-state-hover,
+.fc-state-highlight,
+.fc-cell-overlay {
+    background: var(--#{$prefix}gray-100);
+}
+
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+    background-color: $primary;
+    color: $white;
+    text-shadow: none;
+}
+
+.fc-unthemed {
+    .fc-today {
+        background: $white;
+    }
+}
+
+.fc-event {
+    border-radius: 2px;
+    border: none;
+    cursor: move;
+    font-size: 0.8125rem;
+    margin: 5px 7px;
+    padding: 5px 5px;
+    text-align: center;
+    color: $white;
+
+    &.bg-dark {
+        .fc-event-time,
+        .fc-event-title {
+            color: var(--#{$prefix}gray-100);
+            height: 15px;
+        }
+        .fc-daygrid-event-dot {
+            border-color: var(--#{$prefix}gray-100);
+        }
+    }
+}
+
+.external-event {
+    cursor: move;
+    margin: 10px 0;
+    padding: 8px 10px;
+    color: $white;
+    border-radius: 4px;
+}
+
+.fc-basic-view {
+    td.fc-week-number {
+        span {
+            padding-right: 8px;
+        }
+    }
+
+    td.fc-day-number {
+        padding-right: 8px;
+    }
+
+    .fc-content {
+        color: $white;
+    }
+}
+
+.fc-time-grid-event {
+    .fc-content {
+        color: $white;
+    }
+}
+
+.fc-daygrid-day-number {
+    float: right;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #5c9ded;
+    color: #ffffff !important;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 11px;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+}
+
+.fc-daygrid-event-dot {
+    border-color: $white;
+}
+
+.fc-event-time,
+.fc-event-title {
+    color: $white;
+}
+
+.table-active,
+.table-active > td,
+.table-active > th,
+.fc .fc-list-sticky .fc-list-day > * {
+    background-color: transparent;
+}
+
+.fc .fc-list-event:hover td {
+    background-color: inherit;
+}
+
+@include media-breakpoint-down(md) {
+    .fc-toolbar {
+        display: block !important;
+        .fc-toolbar-chunk {
+            margin: 6px 0;
+        }
+        .fc-left,
+        .fc-right,
+        .fc-center {
+            float: none;
+            display: block;
+            clear: both;
+            margin: 10px 0;
+        }
+    }
+
+    .fc {
+        .fc-toolbar {
+            > * {
+                > * {
+                    float: none;
+                }
+            }
+        }
+    }
+
+    .fc-today-button {
+        display: none;
+    }
+}
+
+// overriding button sizes
+.fc-toolbar {
+    .btn {
+        @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+    }
+}
+
+.fc-list-item-title,
+.fc-list-item-time {
+    color: $white;
+}
+
+#calendar {
+    .table-bordered {
+      transform: translateY(-20px);
+        td,
+        th {
+            border: $table-border-width solid $table-border-color;
+        }
+    }
+}
+
+[dir="rtl"] .fc-toolbar-chunk {
+    .btn-group {
+        .btn {
+            &:first-child {
+                border-top-left-radius: 0px !important;
+                border-bottom-left-radius: 0px !important;
+                border-radius: $btn-border-radius-sm;
+            }
+            &:last-child {
+                border-top-right-radius: 0px !important;
+                border-bottom-right-radius: 0px !important;
+                border-radius: $btn-border-radius-sm;
+            }
+        }
+    }
+}
+#calendar .fc-col-header-cell {
+  background-color: #bbdaf6 !important;
+  color: #424242     !important;
+}
+
+#calendar .fc-col-header-cell .fc-col-header-cell-cushion {
+  background-color: transparent;
+  color:            inherit;
+}
+#calendar .fc-scrollgrid-section-header table,
+#calendar .fc-scrollgrid-section-body table {
+  width:         100%    !important;
+  table-layout:  fixed   !important;
+}
+
+
+#calendar .fc-scrollgrid-section-header table th,
+#calendar .fc-scrollgrid-section-body table td {
+  width: calc(100% / 7) !important;
+}
+#calendar .fc-scrollgrid-section-body td > .fc-scrollgrid-sync-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 80px !important;
+  overflow-y: auto !important;
+}
+
+#calendar .fc-scrollgrid-section-body td
+> .fc-scrollgrid-sync-inner
+> .fc-daygrid-day-frame
+> .fc-daygrid-day-top {
+  flex: 0 0 auto !important;
+}
+
+#calendar .fc-scrollgrid-section-body td
+> .fc-scrollgrid-sync-inner
+> .fc-daygrid-day-frame
+> .fc-daygrid-day-events {
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  min-height: 0 !important;
+}
+
+#calendar .fc-scrollgrid-section-body td
+.fc-daygrid-event {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* 1) 모든 캘린더 툴바 버튼 (fc-button, btn) 색상 강제 override */
+#calendar .fc-theme-bootstrap .fc-toolbar button.fc-button,
+#calendar .fc-theme-bootstrap .fc-toolbar button.btn {
+  background-color: #0056b3 !important;
+  border-color:    #0056b3 !important;
+  color:           #ffffff !important;
+  height: 27px !important;
+  font-size: 12px !important;
+  padding: 6px 8px !important;
+  line-height: 1.2 !important;
+}
+
+/* 2) hover / focus 상태도 override */
+#calendar .fc-theme-bootstrap .fc-toolbar button.fc-button:hover,
+#calendar .fc-theme-bootstrap .fc-toolbar button.btn:hover,
+#calendar .fc-theme-bootstrap .fc-toolbar button.fc-button:focus,
+#calendar .fc-theme-bootstrap .fc-toolbar button.btn:focus {
+  background-color: #004494 !important;
+  border-color:    #004494 !important;
+  color:           #ffffff !important;
+}
+
+/* 3) 선택(active)된 버튼은 흐리게 */
+#calendar .fc-theme-bootstrap .fc-toolbar button.fc-button-active {
+  opacity: 0.5 !important;
+}
+
+#calendar .fc-daygrid-day-top {
+  justify-content: flex-end !important;
+}
+#calendar .fc-daygrid-day-top-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 4px;
+  gap: 4px;
+}
+
+#calendar .fc-daygrid-day-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 11px;
+  width: 14px;         /* ONLY width! */
+  height: 14px;
+  border-radius: 50%;
+  background-color: #5c9ded;
+  color: #fff !important;
+  margin: 0;           /* no margin */
+  padding: 0;          /* no padding */
+  flex-shrink: 0;      /* ← 중요! 크기 줄어들지 않게 */
+}
+
+#calendar .fc-holiday-cell .fc-daygrid-day-number {
+  background-color: #ea4646 !important;
+  color: #fff !important;
+}
+
+#calendar .fc-holiday-name {
+  color: #c00;
+  font-size: 9px;
+  white-space: nowrap;
+  font-weight: bold;
+  margin-left: 0;
+  padding-left: 0;
+  line-height: 14px;
+  flex: 1;            /* 오른쪽으로 쭉 밀기 */
+  text-align: left;   /* 항상 왼쪽 정렬, 필요시 right로 바꿔도 무방 */
+}

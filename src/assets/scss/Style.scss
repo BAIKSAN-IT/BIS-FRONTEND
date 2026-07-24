@@ -1,0 +1,1674 @@
+/*
+.app {
+  height: var(--app-height);
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+*/
+
+/* 선택된 행 */
+.row-selected {
+  background-color: #d9ebf9 !important;
+}
+
+/* 자식 행 */
+.child-row {
+  background-color: #f7f7f7;
+}
+
+/* 부모 기본 */
+.parent-row {
+  background-color: #ffffff;
+}
+
+
+/* 팝업 전체에 화면을 꽉 채우도록 */
+.hps-popup-wrapper {
+  /*width: 1885px;
+  min-width: 1885px;
+  overflow-x: auto;*/
+}
+
+/* sticky header는 그대로 가능 */
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background: #f1f1f1;
+  z-index: 5;
+}
+.hps-popup-wrapper table th,
+.hps-popup-wrapper table td {
+  border: 1px solid #ccc !important;
+}
+/* factory 관련 */
+
+td.hour-bg-green {
+  background-color: #CCE9AD !important;
+  color: black !important;
+}
+
+td.hour-bg-orange {
+  background-color: #FFFF97 !important;
+  color: black !important;
+}
+
+td.hour-bg-blue {
+  background-color: blue !important;
+  color: white !important;
+}
+
+td.hour-bg-red {
+  background-color: #d9534f !important;
+  color: white !important;
+}
+
+td.hour-bg-green span,
+td.hour-bg-orange span,
+td.hour-bg-red span {
+  background-color: transparent !important;
+}
+
+.summary-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+.summary-box {
+  flex: 1;
+  background-color: #ffffc7; /* yello */
+  border: 1px solid #CCCCCC;
+  border-radius: 18px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: row;              /* ⬅ 세로 → 가로 방향으로 변경 */
+  justify-content: space-between;   /* ⬅ label 왼쪽 / value 오른쪽 */
+  align-items: center;              /* ⬅ 세로 가운데 정렬 */
+  text-align: center;
+  margin-right: 10px;
+  height: 70px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
+.summary-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000; /* 진한 회색 */
+  line-height: 1.1;
+}
+
+.summary-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6200c9; /* 보라색 */
+  margin-top: 4px;
+}
+.card-gray-border {
+  /*height: 100%;*/
+  border: 1px solid #ddd;
+}
+/* 라벨 오른쪽에 빨간색 * 표시 */
+.required::after {
+  content: "   *";
+  color: #e63946; // 진한 빨간색
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+input#dtsStart::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+  font-size: 14px; /* 아이콘 크기 */
+}
+
+input#dtsEnd::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 32px;
+  font-size: 14px; /* 아이콘 크기 */
+}
+
+.account-login-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면 전체 높이를 기준으로 정렬 */
+  margin: 0; /* 기존 여백 제거 */
+  padding: 0;
+}
+
+/* input-group 컨테이너 유지 */
+.input-group.input-group-sm {
+  width: 9rem;
+}
+
+/* 인풋과 아이콘 높이 고정 */
+.input-group-sm .form-control {
+  box-sizing: border-box; /* 크기 재조정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 아이콘 크기 및 정렬 */
+.input-group-text i {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* 상단 페이지 제목 및 버튼 */
+.system-title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 좌우 배치 */
+  padding: 0;
+  background-color: transparent; /* 배경 투명 */
+  border: none; /* 테두리 제거 */
+
+  .system-title-left {
+    display: flex;
+    align-items: center;
+    padding-top: 8px; /* breadcrumb 정렬 */
+  }
+
+  .system-title-right {
+    display: flex;
+    align-items: center;
+    gap: 3px; /* 버튼 간격 */
+    margin-top: 0; /* 위 여백 제거 */
+  }
+
+  .breadcrumb {
+    margin-bottom: 0;
+    padding-left: 0;
+    background-color: transparent; /* breadcrumb 배경 투명 */
+  }
+}
+
+/* 반응형 레이아웃 */
+@media (max-width: 767.98px) {
+  .system-title-box {
+    .system-title {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 70px;
+    }
+
+    .breadcrumb {
+      display: none;
+      font-size: 11px;
+    }
+
+    .system-title-right {
+      display: none; /* 버튼 감춤 */
+    }
+  }
+}
+
+@media (max-width: 419px) {
+  .system-title-box .breadcrumb {
+    display: none;
+  }
+}
+
+/* Form Group */
+.system-form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  .label-custom {
+    flex: 0 0 90px; /* 라벨 고정 너비 */
+    font-size: 10px; /* 라벨 폰트 크기 */
+    font-weight: normal;
+    text-align: center;
+    height: 26px; /* 입력 필드와 동일한 높이 */
+    line-height: 26px; /* 텍스트를 중앙에 배치 */
+    background-color: #bbdaf6; /* 텍스트 색상 */
+    color: #424242;
+    margin-bottom: 6px;
+    font-style: revert;
+    font-family: PaperlogyMedium;
+    border-radius: 4px;
+  }
+  .form-control {
+    flex-grow: 1; /* 남은 공간을 입력 필드가 채움 */
+    height: 26px; /* 입력 필드 높이 */
+    font-size: 10px;
+    padding: 5px 10px;
+    transform: translateY(-3px); /* 상단으로 약간 이동 */
+  }
+  .sales-control {
+    flex-grow: 1; /* 남은 공간을 입력 필드가 채움 */
+    height: 26px; /* 입력 필드 높이 */
+    font-size: 10px;
+    padding: 5px 10px;
+    transform: translateY(0px); /* 상단으로 약간 이동 */
+  }
+  .form-control:disabled,
+  .custom-disabled-input {
+    background-color: #f5f5f5 !important; /*  연한 회색 */
+    color: #555 !important; /*  글자 색상 */
+    cursor: not-allowed !important; /*  마우스 커서 변경 */
+    border: 1px solid #ddd !important; /*  테두리 */
+  }
+
+  .textarea-form-control {
+    flex-grow: 1;
+    height: 85px;
+    font-size: 12px;
+    padding: 10px;
+    resize: vertical;
+    text-align: left;
+    border: 1px solid #ddd;
+    transform: translateY(0px);
+  }
+  .sales-textarea-form-control {
+    flex-grow: 1;
+    height: 80px;
+    font-size: 12px;
+    padding: 10px;
+    resize: vertical;
+    text-align: left;
+    border: 1px solid #ddd;
+    transform: translateY(0px);
+  }
+  .w-30 {
+    width: 30%;
+  }
+
+}
+
+/* 라디오 버튼 그룹 */
+.radio-group {
+  display: flex;
+  gap: 1px;
+  margin-right: 380px;
+  align-items: center;
+  justify-content: center; /* 왼쪽 정렬 */
+
+  label {
+    font-size: 12px; /* 라디오 버튼 텍스트 크기 */
+    gap: 4px; /* 버튼과 텍스트 사이 간격 */
+  }
+}
+.search-custom-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 26px;
+  width: 80px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  font-family: PaperlogyMedium;
+  border-radius: 4px;
+}
+
+.search-custom-salary-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 26px;
+  width: 150px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.remark-custom-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background: #bbdaf6 !important;
+  font-family: PaperlogyMedium;
+  color: #424242;
+  text-align: center;
+  font-size: 9px;
+  height: 85px;
+  width: 108px;
+  border-radius: 6px;
+  /* Flexbox를 활용한 완벽한 가운데 정렬 */
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.modal-search-custom-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;
+  text-align: center;
+  font-size: 12px;
+  height: 26px;
+  width: 240px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  margin-top: 14px; /* 탑 여백 추가 */
+  font-family: PaperlogyMedium;
+  border-radius: 4px;
+}
+.modal-search-custom-input-class {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  height: 26px; /* 입력 필드 높이 */
+  font-size: 12px;
+  padding: 10px 10px;
+  transform: translateY(0px);
+}
+.modal-search-custom-header-class {
+    background-color: #0056b3;
+  font-family: PaperlogyMedium;
+  color: white;
+  padding: 0px 15px;
+  height: 30px;
+}
+.modal-search-custom-title-class {
+  font-Size: 13px;
+  color: white;
+}
+/* 테이블 전체 배경 및 스타일 */
+.table-custom-system-user-background {
+  width: auto; /*  테이블이 내용에 맞춰 자동 조정됨 */
+  table-layout: auto; /*  컬럼 크기 자동 조정 */
+  border-collapse: collapse;
+}
+
+/* 테이블 셀 간격 및 스타일 */
+.table-custom-system-user-background th,
+.table-custom-system-user-background td {
+  width: auto;
+  height: 30px;
+  padding: 6px 8px; /* 셀 내부 간격 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  overflow: hidden; /* 내용 오버플로우 방지 */
+}
+
+/* 헤더 스타일 */
+.table-custom-system-user-background th {
+  font-weight: normal;
+  font-size: 11px;
+  position: sticky; /* 헤더 고정 */
+  top: 0; /* 스크롤 시 상단 고정 */
+  z-index: 2; /* 헤더가 다른 요소 위로 표시 */
+  background-color: #bbdaf6 !important; /* 헤더 배경색 */
+  font-family: PaperlogyMedium;
+  border: none; /* 기본 테두리 제거 */
+  border-right: 1px solid #cccccc; /* 셀 사이의 테두리 */
+  border-top: 1px solid #cccccc; /* 셀 사이의 테두리 */
+}
+
+/* 마지막 헤더 셀의 오른쪽 테두리 제거 */
+.table-custom-system-user-background th:last-child {
+  border-right: none;
+}
+
+/* 본문 행 배경색 교차 적용 */
+.table-custom-system-user-background tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* 짝수 행 연한 회색 */
+}
+
+.table-custom-system-user-background tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* 홀수 행 흰색 */
+}
+
+/* 테이블 컨테이너에 스크롤 추가 */
+.system-table-container {
+  height: 730px;
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+
+.system-table-container .table-responsive {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.history-page-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.history-page-card {
+  margin-top: 0.5rem;
+}
+
+.history-table-container {
+  height: calc(-100px + 83vh);
+  width: 100%;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.history-table-container .system-table-container {
+  height: 100%;
+}
+
+.history-table-container .table-responsive {
+  flex-grow: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.history-page-container .row {
+  --bs-gutter-x: 0.75rem;
+}
+
+.history-page-container .search-custom-label-class {
+  flex: 0 0 80px;
+  min-width: 80px;
+}
+
+.history-page-container .form-control {
+  min-width: 0;
+}
+
+.history-date-input-group {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.history-date-input-group .form-control {
+  min-width: 0;
+}
+
+.history-date-separator {
+  height: 27px;
+  font-size: 10px;
+  padding: 0 8px;
+  background-color: #f8f9fa;
+  border-left: 0;
+  border-right: 0;
+}
+
+.history-table-scroll {
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid #cccccc;
+}
+
+.history-fixed-table {
+  width: 100%;
+  min-width: 1100px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+
+.history-fixed-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #bbdaf6 !important;
+  color: #424242 !important;
+  font-family: PaperlogyMedium;
+  font-weight: normal;
+  font-size: 11px;
+  height: 30px;
+  padding: 6px 8px;
+  border: 1px solid #cccccc;
+  white-space: nowrap;
+}
+
+.history-fixed-table tbody td {
+  height: 29px;
+  padding: 4px 8px;
+  border-bottom: 1px solid #d9e2ef;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.history-fixed-table tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.history-fixed-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.history-fixed-cell {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pagination-container {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  z-index: 10;
+}
+
+.table-custom-system-user-background thead {
+  position: sticky;
+  top: 0; /* 최상단에 고정 */
+  z-index: 10;
+  background-color: #bbdaf6 !important; /* 헤더 배경 유지 */
+  font-family: PaperlogyMedium;
+  color: #424242;
+}
+
+/* 모달 테이블 컨테이너에 스크롤 추가 */
+.modal-table-container {
+  max-height: 450px;
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow-y: auto !important; /*  강제로 스크롤 적용 */
+  display: flex;
+}
+
+/* 인풋 number 화살표 항상 표시 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 1;
+}
+.system-page-title-button {
+  display: flex; /* 플렉스 박스 활성화 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  padding: 5px 13px; /* 버튼 내부 간격 */
+  font-size: 11px; /* 기본 글자 크기 */
+  height: 27px; /* 버튼 높이 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border: none; /* 기본 테두리 제거 */
+  background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 기본 버튼 색상 */
+  color: #ffffff; /* 글자 색상 */
+  border-radius: 4px; /* 버튼 테두리 둥글게 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 애니메이션 */
+}
+
+.system-page-title-button i {
+  font-size: 14px; /* 아이콘 크기 */
+  margin-right: 4px; /* 아이콘과 텍스트 간 간격 */
+}
+
+/* Hover 상태 스타일 */
+.system-page-title-button:hover {
+  background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 어두운 파란색으로 변경 */
+  transform: scale(1.05); /* 살짝 확대 효과 */
+}
+
+.system-register-search-button {
+  display: flex; /* 플렉스 박스 활성화 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  padding: 5px 7px; /* 버튼 내부 간격 */
+  font-size: 11px; /* 버튼 크기 */
+  height: 25px; /* 버튼 높이 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border: none; /* 기본 테두리 제거 */
+  background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 기본 버튼 색상 */
+  color: #ffffff; /* 글자 색상 */
+  border-radius: 4px; /* 버튼 테두리 둥글게 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 애니메이션 */
+  margin-left: -3px;
+  transform: translateY(-3px); /* 상단으로 약간 이동 */
+}
+
+/* Hover 상태 스타일 */
+.system-register-search-button:hover {
+    background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 어두운 파란색으로 변경 */
+  transform: scale(1.05); /* 살짝 확대 효과 */
+}
+
+.system-modal-search-button {
+  display: flex; /* 플렉스 박스 활성화 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  padding: 5px 7px; /* 버튼 내부 간격 */
+  font-size: 12px;
+  width: 185px;
+  height: 26px;
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border: none; /* 기본 테두리 제거 */
+    background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 기본 버튼 색상 */
+  color: #ffffff; /* 글자 색상 */
+  border-radius: 4px; /* 버튼 테두리 둥글게 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 애니메이션 */
+  margin-left: 10px;
+  margin-top: 14px; /* 탑 여백 추가 */
+}
+.system-modal-search-button i {
+  font-size: 12px; /* 아이콘 크기 */
+  margin-right: 3px; /* 아이콘과 텍스트 간 간격 */
+}
+
+/* Hover 상태 스타일 */
+.system-modal-search-button:hover {
+    background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 어두운 파란색으로 변경 */
+  transform: scale(1.05); /* 살짝 확대 효과 */
+}
+
+/* 메시지 스타일 (데이터 없을떄 ) */
+.table-no-data-message {
+  font-size: 1.2rem; /* 글씨 크기를 크게 설정 */
+  padding: 20px 20px; /* 위아래 간격 추가 */
+}
+
+.system-list-total-count {
+  display: inline-block;
+  position: relative;
+  top: -10px; /* 숫자와 건을 살짝 위로 */
+  font-size: 13px;
+}
+
+.system-modal-total-count {
+  display: inline-block;
+  position: relative;
+  top: -20px; /* 숫자와 건을 살짝 위로 */
+  font-size: 11px;
+  margin-bottom: -20px;
+}
+
+/* SweetAlert2 모달 크기 줄이기 */
+/* ===== Popup ===== */
+.small-swal-popup {
+  width: 350px !important; /* 모달 크기 */
+  height: 80px !important; /* 모달 크기 */
+  padding: 10px !important;
+}
+.small-swal-popup .swal2-html-container {
+  font-size: 14px !important;  /* 메시지 폰트 크기 조정 */
+  transform: translateY(-5px);
+}
+.tight-swal-popup {
+  width: 350px !important;
+  height: 100px !important; /* 모달 크기 */
+  padding: 0 !important;
+}
+
+/* ===== Header 전체 ===== */
+.tight-swal-popup .swal2-header {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;   /* ✅ 왼쪽 정렬 */
+  position: relative;
+  border-bottom: 1px solid #cfcfcf;   /* ✅ 헤더 전체 보더 */
+  padding: 0px 0px 4px 10px !important;
+  background: #0056b3 !important;
+}
+
+/* ===== Title 전체 영역 ===== */
+.tight-swal-title {
+  font-size: 14px !important;
+  font-weight: 600;
+  text-align: center !important;
+  color: white !important;
+  transform: translateY(5px);
+}
+
+/* ===== X 버튼 (작게) ===== */
+.tight-swal-close {
+  right: 8px !important;
+  top: -4px !important;
+  font-size: 14px !important;
+  color: white !important;
+  transform: translateY(5px);
+}
+/* ===== Message ===== */
+.tight-swal-popup .swal2-actions {
+  height: 5px !important;
+  transform: translateY(-20px);
+}
+/* ===== Message ===== */
+.tight-swal-popup .swal2-html-container,
+.tight-swal-popup .swal2-text {
+  margin: 6px 8px !important;
+  font-size: 12px !important;
+  transform: translateY(-20px);
+}
+/* ===== Buttons ===== */
+.small-swal-button {
+  height: 25px !important; /* 모달 크기 */
+  width: 66px !important;
+  font-size: 3px !important;
+  padding: 3px 12px !important;
+  transform: translateY(-30px);
+  background-color: #4a81d4; /* 기본 버튼 색상 */
+}
+.resizer {
+  display: inline-block;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  right: 0px;  /*  부모 `th`를 벗어나도록 조정 */
+  top: 0;
+  transform: translateX(50%);
+  z-index: 1;
+  /* prevent scroll on touch devices */
+  touch-action: none;
+}
+
+/* 상단 텍스트 색상 UserRegister 등등 */
+.breadcrumb-item.active {
+  color: #4a81d4 !important;
+  font-weight: bold;
+}
+.custom-divider {
+  height: 1px;
+  background-color: #ddd; /* 회색 선 */
+  margin: 4px 0;
+}
+
+.input-pis-table-custom {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #424242;
+}
+
+.delete-table-table-row {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.program-menu-tree {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 1px 4px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #424242;
+}
+
+.icon-chevron {
+  position: absolute;
+  font-size: 20px; // 아이콘 크기
+  right: 10px; // 오른쪽 정렬
+  top: 50%; // 세로 중앙 정렬
+  transform: translateY(-50%); // 정확한 중앙 정렬
+}
+
+.icon-chevron-down {
+  @extend .icon-chevron;
+}
+
+.icon-chevron-up {
+  @extend .icon-chevron;
+  transform: translateY(-50%) rotate(180deg); // 위쪽 방향 아이콘
+}
+
+/* 체크박스 스타일 변경 */
+.system-form-check-input {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #424242; /* 테두리 색상 */
+  background-color: white; /* 배경색 */
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:checked {
+    background-color: gray; /* 체크 시 배경색 */
+    border-color: gray; /* 체크 시 테두리 색상 */
+  }
+
+  &:checked::before {
+    content: "✔";
+    display: block;
+    color: white; /* 체크 표시 색상 */
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+  }
+}
+.custom-outline-button {
+  color: #0056b3 !important; // 기본 텍스트 색상
+  border: 1px solid #0056b3 !important; // 테두리 색상
+  background-color: white !important; // 기본 배경색
+  display: flex;
+  justify-content: center; // 수평 중앙 정렬
+  gap: 3px; // 아이콘과 텍스트 사이 간격
+  padding: 0px 6px; // 좌우 여백 조정
+  transition: all 0.3s ease;
+  height: 26px;
+  font-size: 12px;
+  line-height: 26px; // 텍스트를 버튼 높이에 맞춰 수직 중앙 정렬
+
+  &:hover {
+    background-color: #0056b3 !important;
+    color: white !important;
+  }
+
+  &:focus,
+  &:active {
+    background-color: #0056b3 !important;
+    color: white !important;
+    border-color: #0056b3 !important;
+    box-shadow: none !important;
+  }
+
+  .toggle-icon {
+    font-size: 100px;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+.sales-activity-button {
+  color: #0056b3 !important; // 기본 텍스트 색상
+  border: 1px solid #0056b3 !important; // 테두리 색상
+  background-color: white !important; // 기본 배경색
+  display: flex;
+  align-items: center; // 수직 중앙 정렬
+  justify-content: center; // 수평 중앙 정렬
+  padding: 6px 12px; // 좌우 여백 증가
+  transition: all 0.3s ease;
+  height: 27px; // 높이 증가
+  min-width: 80px; // 버튼 최소 너비 설정
+  font-size: 12px; // 폰트 크기 증가
+  line-height: 34px; // 텍스트를 버튼 높이에 맞춰 수직 중앙 정렬
+  border-radius: 6px; // 버튼 모서리 둥글게
+  transform: translateY(-18px); // 버튼 위치 위로
+  font-family: PaperlogyMedium;
+
+  // Primary 버튼일 때 배경색 유지
+  &.active-button {
+    background-color: #0056b3 !important;
+    color: white !important;
+    border-color: #0056b3 !important;
+  }
+
+  &:hover {
+    background-color: #0056b3 !important;
+    color: white !important;
+  }
+}
+
+// Primary 버튼일 때 색상 변경
+.sales-activity-button.primary {
+  background-color: #0056b3 !important;
+  color: white !important;
+
+  &:hover {
+    background-color: darken(#0056b3, 10%) !important;
+  }
+}
+/* 테이블 컨테이너에 스크롤 추가 */
+.sales-table-container {
+  height: 850px;
+  width: 100%;
+  position: absolute;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+
+/* 테이블 컨테이너에 스크롤 추가 */
+.sales-sub-table-container {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+
+.sales-register-table-container {
+  height: 140px;
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: visible !important;
+  display: flex;
+}
+/* 테이블 전체 배경 및 스타일 */
+.table-custom-sales-background {
+  width: auto; /*  테이블이 내용에 맞춰 자동 조정됨 */
+  table-layout: auto; /*  컬럼 크기 자동 조정 */
+  border-collapse: collapse;
+}
+
+/* 테이블 셀 간격 및 스타일 */
+.table-custom-sales-background th,
+.table-custom-sales-background td {
+  width: auto;
+  height: 33px;
+  padding: 6px 8px; /* 셀 내부 간격 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  overflow: hidden; /* 내용 오버플로우 방지 */
+  align-content: center;
+}
+
+/* 헤더 스타일 */
+.table-custom-sales-background th {
+  font-weight: normal;
+  height: 26px;
+  position: sticky; /* 헤더 고정 */
+  top: 0; /* 스크롤 시 상단 고정 */
+  z-index: 2; /* 헤더가 다른 요소 위로 표시 */
+  background-color: #bbdaf6 !important; /* 헤더 배경색 */
+  color: #424242 !important; /* 헤더 배경색 */
+  border: none; /* 기본 테두리 제거 */
+  border-right: 1px solid #cccccc; /* 셀 사이의 테두리 */
+  border-top: 1px solid #cccccc; /* 셀 사이의 테두리 */
+  font-family: PaperlogyMedium;
+  font-size: 9px !important;
+}
+
+/* 마지막 헤더 셀의 오른쪽 테두리 제거 */
+.table-custom-sales-background th:last-child {
+  border-right: none;
+}
+
+/* 본문 행 배경색 교차 적용 */
+.table-custom-sales-background tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* 짝수 행 연한 회색 */
+}
+
+.table-custom-sales-background tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* 홀수 행 흰색 */
+}
+
+.sales-custom-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  font-family: PaperlogyMedium;
+  border-radius: 4px;
+}
+
+.sales-activity-table-col {
+  position: relative;
+  overflow: hidden;
+  height: 750px;
+  transform: translateY(-15px);
+}
+
+.sales-activity-table-top {
+  border: 1px solid #ddd;
+  transform: translateY(-35px);
+}
+
+.rnd-recap-table-top {
+  border: 1px solid #ddd;
+  height: calc(68vh - 36px);
+}
+.editor-container {
+  height: auto;
+  overflow: hidden;
+}
+
+.sales-register-top-card {
+  border: 1px solid #ddd;
+  transform: translateY(-18px);
+  height: 80px;
+  transition: height 0.3s ease-in-out;
+}
+
+.sales-register-top-div {
+  margin-right: 10px;
+  display: flex;
+  transform: translateY(-18px);
+  align-items: center;
+}
+
+.sales-register-top-input {
+  height: 27px;
+  font-size: 10px;
+  width: 120px;
+}
+
+.sales-register-top-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.modal-user-search-custom {
+  width: 120px;
+  height: 27px;
+  transform: translateY(7px);
+}
+
+.modal-user-search-custom-label-class{
+  font-weight: normal;
+  background-color: #bbdaf6;
+  color: #424242;
+  text-align: center;
+  font-size: 12px;
+  height: 26px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  font-family: PaperlogyMedium;
+  border-radius: 4px;
+}
+
+.modal-user-search-custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 7px;
+  font-size: 12px;
+  width: 65px;
+  height: 26px;
+  cursor: pointer;
+  border: none;
+    background-color: #0056b3;
+  font-family: PaperlogyMedium;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 30px;
+  margin-top: 14px;
+}
+
+.sales-content-preview table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.sales-content-preview th {
+  background-color: #f8f9fa;
+  color: #333;
+}
+.sales-content-preview td {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+}
+/* 1) 테이블 컨테이너 고정 */
+.sales-react-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/* 2) 헤더/바디 영역을 블록으로 분리 */
+.sales-react-table thead,
+.sales-react-table tbody {
+  display: block;
+}
+/* 3) 각 행을 flex 컨테이너로 */
+.sales-react-table tr {
+  display: flex;
+  width: 100%;
+}
+/* 4) 셀은 flex로 크기 조정 */
+.sales-react-table th,
+.sales-react-table td {
+  min-width: 0;
+}
+/* 5) 리사이저(컬럼 경계) 스타일 */
+.sales-react-table th .resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  cursor: col-resize;
+  background: transparent;
+  z-index: 10;
+}
+.sales-react-table th .isResizing {
+  background: rgba(0,0,0,0.1);
+}
+.fixed-layout-table {
+  table-layout: fixed !important;
+  width: 100%;
+}
+
+.custom-sewing-search-label {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 26px;
+  width: 60px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.custom-sewing-search-input {
+  height: 27px;
+  font-size: 10px;
+}
+
+.custom-salesPlan-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;
+  text-align: center;
+  font-size: 11px;
+  height: 40px;
+  width: 15%;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+.fc-saturday, .fc-sunday {
+  background-color: #f8f9fa !important;
+}
+
+.fc-saturday, .fc-sunday {
+  background-color: #f8f9fa !important;
+}
+
+.table td.custom-sales-dashboard-table {
+  background-color: #bbdaf6 !important;
+  width: auto;
+  font-family: PaperlogyMedium;
+  color: #424242;
+  vertical-Align: middle;
+  text-Align: center;
+}
+
+@media print {
+  .print-hide {
+    display: none !important;
+  }
+}
+.search-custom-fabric-input-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 27px;
+  width: 160px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  border-radius: 6px; /* 버튼 테두리 둥글게 */
+}
+
+.search-custom-fabric-search-input-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;
+  text-align: center;
+  font-size: 11px;
+  height: 27px;
+  width: 190px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.search-custom-fabric-select-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background: #bbdaf6;
+  font-family: PaperlogyMedium;
+  font-size: 9px;
+  color: #424242;;
+  text-align: center;
+  height: 27px;
+  width: 150px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+
+}
+.fabric-register-table-container {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: visible !important;
+  display: flex;
+}
+.register-custom-fabric-label-class {
+  font-weight: normal; /* 필요에 따라 bold 또는 normal */
+  background-color: #bbdaf6; /* 텍스트 색상 */
+  color: #424242;;
+  text-align: center;
+  font-size: 11px;
+  height: 27px;
+  width: 260px;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+.hyper-datepicker-popper {
+  z-index: 9999 !important;
+}
+/* SCSS or CSS (전역) */
+.compact-card .card-body {
+  padding: 8px 12px 12px;   /* 위쪽·좌우·아래 패딩만 살짝 */
+}
+
+.print-modal-div-button-class {
+  display: flex;
+  background: #e4edfb;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 1px 8px;
+}
+
+.print-modal-down-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.print-modal-excel-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.print-modal-pdf-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.print-modal-word-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.print-modal-close-button {
+  display: flex; /* 플렉스 박스 활성화 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  font-size: 12px;
+  width: 50px;
+  height: 26px;
+  margin-top: 5px;
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border: none; /* 기본 테두리 제거 */
+  background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 기본 버튼 색상 */
+  color: #ffffff; /* 글자 색상 */
+  border-radius: 4px; /* 버튼 테두리 둥글게 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 애니메이션 */
+}
+.print-modal-close-button i {
+  font-size: 12px; /* 아이콘 크기 */
+  margin-right: 3px; /* 아이콘과 텍스트 간 간격 */
+}
+
+/* Hover 상태 스타일 */
+.print-modal-close-button:hover {
+    background-color: #0056b3;
+  font-family: PaperlogyMedium; /* 어두운 파란색으로 변경 */
+  transform: scale(1.05); /* 살짝 확대 효과 */
+}
+
+/* 테이블 전체 배경 및 스타일 */
+.table-custom-rnd-background {
+  width: auto; /*  테이블이 내용에 맞춰 자동 조정됨 */
+  table-layout: auto; /*  컬럼 크기 자동 조정 */
+  border-collapse: collapse;
+}
+
+/* 테이블 셀 간격 및 스타일 */
+.table-custom-rnd-background th,
+.table-custom-rnd-background td {
+  width: auto;
+  height: 55px;
+  padding: 6px 8px; /* 셀 내부 간격 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  overflow: hidden; /* 내용 오버플로우 방지 */
+  align-content: center;
+}
+
+/* 헤더 스타일 */
+.table-custom-rnd-background th {
+  font-weight: bold;
+  height: 26px;
+  position: sticky; /* 헤더 고정 */
+  top: 0; /* 스크롤 시 상단 고정 */
+  z-index: 2; /* 헤더가 다른 요소 위로 표시 */
+  background-color: #bbdaf6 !important; /* 헤더 배경색 */
+  font-family: PaperlogyMedium;
+  font-size: 9px;
+  border: none; /* 기본 테두리 제거 */
+  border-right: 1px solid #cccccc; /* 셀 사이의 테두리 */
+  border-top: 1px solid #cccccc; /* 셀 사이의 테두리 */
+}
+
+/* 마지막 헤더 셀의 오른쪽 테두리 제거 */
+.table-custom-rnd-background th:last-child {
+  border-right: none;
+}
+
+/* 본문 행 배경색 교차 적용 */
+.table-custom-rnd-background tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* 짝수 행 연한 회색 */
+}
+
+.table-custom-rnd-background tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* 홀수 행 흰색 */
+}
+.form-grid {
+  /* 한 화면만 조절하고 싶을 때 여기 숫자만 바꾸면 됨 */
+  --label-w: 100px;   /* 라벨 고정폭 */
+  --control-h: 27px;  /* 인풋/셀렉트/버튼 높이 */
+  --control-fs: 11px; /* 폰트 크기 */
+}
+
+/* 각 줄을 Grid로: [라벨 고정 | 컨트롤 유동 | 버튼(옵션)] */
+.form-grid .fg-row {
+  display: grid;
+  grid-template-columns: var(--label-w) 1fr auto;
+  align-items: center;
+  column-gap: var(--gap-x);
+  margin-bottom: 8px;
+}
+
+/* 라벨 완전 고정 (수축 금지) */
+.form-grid .fg-label {
+  box-sizing: border-box;
+  width: var(--label-w);
+  min-width: var(--label-w);
+  max-width: var(--label-w);
+  height: var(--control-h);
+  background-color: #bbdaf6;
+  font-family: PaperlogyMedium;
+  color: #424242;
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 6px; /* 버튼 테두리 둥글게 */
+  font-size: 9px;
+}
+
+/* 컨트롤 통일 */
+.form-grid .fg-control {
+  height: var(--control-h) !important;
+  font-size: var(--control-fs) !important;
+  padding: 0 8px !important;
+  line-height: calc(var(--control-h) - 2px) !important; /* 보더 제외 */
+}
+
+/* select는 반드시 form-select */
+.form-grid .form-select.fg-control {
+  padding-right: 24px !important; /* 화살표 공간 */
+}
+
+/* 버튼도 라인 맞춤 */
+.form-grid .fg-btn {
+  height: var(--control-h);
+  line-height: var(--control-h);
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* 수평 중앙 정렬 */
+  font-size: 11px; /* 버튼 크기 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border: 1px solid #ccc; /* 기본 테두리 제거 */
+  background-color: #ffffff;
+  font-family: PaperlogyMedium; /* 기본 버튼 색상 */
+  color: #424242; /* 글자 색상 */
+  border-radius: 4px; /* 버튼 테두리 둥글게 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 애니메이션 */
+}
+
+/* (선택) 날짜 인풋 보정 */
+.form-grid input[type="date"].fg-control {
+  -webkit-appearance: none;
+  appearance: none;
+}
+/* 테이블 컨테이너에 스크롤 추가 */
+.rnd-recap-table-container {
+  height: 600px;
+  width: 100%;
+  position: absolute;
+  white-space: nowrap; /* 셀 내용이 줄바꿈되지 않도록 설정 */
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+
+/* ====== EIS 전용 테이블 스킨 ====== */
+.table-custom-eis-background {
+  width: auto;
+  table-layout: auto;
+  border-collapse: separate;   /* sticky 경계 잔상 방지 */
+  border-spacing: 0;
+}
+
+/* 셀 공통 */
+.table-custom-eis-background th,
+.table-custom-eis-background td {
+  height: 30px;
+  padding: 6px 8px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+  border-collapse: collapse !important;
+}
+
+/* 헤더 스킨(배경/테두리만) — sticky 금지 */
+.table-custom-eis-background th {
+  background-color: #bbdaf6 !important;
+  font-family: PaperlogyMedium;
+  font-size: 9px;
+  border: 1px solid #e5e5e5 !important;
+}
+
+/* 행 배경 교차 */
+.table-custom-eis-background tbody tr:nth-child(even) { background-color: #f7f7f7; }
+.table-custom-eis-background tbody tr:nth-child(odd)  { background-color: #ffffff; }
+
+/* ====== PisEisTable 전용: sticky 충돌 방지 ====== */
+/* thead 자체는 sticky 금지 — th만 sticky */
+.eis-react-table.table-custom-eis-background thead {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+/* 본문 sticky 셀 비침 방지 */
+.eis-react-table.table-custom-eis-background td { background: #fff; }
+
+/* (옵션) 왼쪽 고정 경계선 살짝 음영 */
+.eis-react-table.table-custom-eis-background,
+.eis-react-table.table-custom-eis-background {
+  box-shadow: 2px 0 0 rgba(0,0,0,0.03);
+}
+
+/* 리사이저 */
+.eis-react-table.table-custom-eis-background th .resizer {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 5px; cursor: col-resize; background: transparent; z-index: 10;
+}
+.eis-react-table.table-custom-eis-background th .isResizing { background: rgba(0,0,0,0.1); }
+
+/* 스크롤 컨테이너: 가로만 스크롤, 세로는 테이블이 담당 */
+.eis-table-container {
+  height: calc(-100px + 85vh);
+  width: 100%;
+  position: absolute;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.eis-table-container .table-responsive {
+  flex-grow: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+/* 헤더 셀 내부 텍스트 강조(선택) */
+.eis-table-container thead th .col-group {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.daily-production-summary-box {
+  flex: 1;
+  background-color: skyblue; /* yello */
+  border: 1px solid #CCCCCC;
+  border-radius: 9px;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: row;              /* ⬅ 세로 → 가로 방향으로 변경 */
+  justify-content: space-between;   /* ⬅ label 왼쪽 / value 오른쪽 */
+  align-items: center;              /* ⬅ 세로 가운데 정렬 */
+  text-align: center;
+  margin-right: 10px;
+  height: 30px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
+}
+
+.daily-production-summary-label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000; /* 진한 회색 */
+  line-height: 1.1;
+}
+
+.daily-production-summary-value {
+  font-size: 12px;
+  font-weight: bold;
+  color: #6200c9; /* 보라색 */
+  margin-top: 4px;
+}
+/* ====== EIS 전용 테이블 스킨 ====== */
+.table-custom-main-factory-background {
+  width: auto;
+  table-layout: auto;
+  border-collapse: separate;   /* sticky 경계 잔상 방지 */
+  border-spacing: 0;
+}
+
+/* 셀 공통 */
+.table-custom-main-factory-background th,
+.table-custom-main-factory-background td {
+  height: 30px;
+  padding: 1px 6px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+  border-collapse: collapse !important;
+}
+
+/* 헤더 스킨(배경/테두리만) — sticky 금지 */
+.table-custom-main-factory-background th {
+  background-color: #bbdaf6 !important;
+  font-family: PaperlogyMedium;
+  font-size: 9px;
+  border: 1px solid #e5e5e5 !important;
+}
+
+/* 행 배경 교차 */
+.table-custom-main-factory-background tbody tr:nth-child(even) { background-color: #f7f7f7; }
+.table-custom-main-factory-background tbody tr:nth-child(odd)  { background-color: #ffffff; }
+
+/* DATE input 완전 비활성 */
+.date-disabled {
+  background-color: #e9ecef !important; /* 회색 */
+  color: #6c757d !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* date input 내부 X 버튼 제거 */
+.date-disabled::-webkit-clear-button {
+  display: none;
+}
+
+.date-disabled::-webkit-inner-spin-button {
+  display: none;
+}
+
+.date-disabled::-webkit-calendar-picker-indicator {
+  display: none;
+}
+.input-disabled {
+  background-color: #e9ecef !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+.factory-summary-table thead th {
+  background-color: #BBDAF6 !important;
+  padding: 4px 6px !important;
+  line-height: 1.1 !important;
+}
+.factory-summary-table thead th {
+  background-color: #BBDAF6 !important;
+}
+
+.factory-summary-table tbody tr.row-even > td {
+  background-color: #ffffff !important;
+}
+
+.factory-summary-table tbody tr.row-odd > td {
+  background-color: #f3f3f3 !important;
+}

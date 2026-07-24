@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "PaperlogyMedium";
+  src: url("./assets/fonts/Paperlogy-5Medium.ttf") format("truetype");
+}
+.toastPop {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #f1556c;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 68%;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+  border-radius: 25px;
+}
+
+.toastPop.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.font-PaperLogy {
+  font-family: "PaperlogyMedium", sans-serif !important;
+}

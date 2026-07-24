@@ -1,0 +1,295 @@
+//
+// topbar.scss
+//
+
+.navbar-custom {
+  background: $topbar-bg;
+  min-height: $topbar-height;
+  top: 0;
+  position: sticky;
+  transition: $menu-transition;
+  z-index: 999;
+  border: $card-border-width solid transparent;
+  border-bottom: $card-border-width solid $card-border-color;
+  box-shadow: var(--#{$prefix}box-shadow);
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 $spacer;
+
+    ul {
+      list-style-type: none;
+      margin-bottom: 0;
+    }
+
+    li {
+      max-height: $topbar-height;
+
+      .nav-link {
+        &.show {
+          color: $topbar-item-hover-color;
+        }
+      }
+    }
+
+    .nav-link {
+      padding: 0 $spacer * 0.75;
+      position: relative;
+      color: $topbar-item-color;
+      display: flex;
+      align-items: center;
+      height: $topbar-height;
+      cursor: pointer;
+
+      &:hover {
+        color: $topbar-item-hover-color;
+      }
+    }
+
+    // Topbar Search from
+    .app-search {
+      form {
+        .form-control {
+          color: $topbar-item-color;
+          background-color: $topbar-search-bg;
+
+          &::placeholder {
+            color: $topbar-item-color;
+          }
+        }
+
+        span.search-icon {
+          color: $topbar-item-color;
+        }
+      }
+    }
+  }
+}
+
+.navbar-custom-tablet {
+  background: $topbar-bg;
+  min-height: 80px;
+  top: 0;
+  //   position: sticky;
+  transition: $menu-transition;
+  z-index: 999;
+  border: $card-border-width solid transparent;
+  border-bottom: $card-border-width solid $card-border-color;
+  box-shadow: var(--#{$prefix}box-shadow);
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 $spacer;
+
+    ul {
+      list-style-type: none;
+      margin-bottom: 0;
+    }
+
+    li {
+      max-height: $topbar-height;
+
+      .nav-link {
+        &.show {
+          color: $topbar-item-hover-color;
+        }
+      }
+    }
+
+    .nav-link {
+      padding: 0 $spacer * 0.75;
+      position: relative;
+      color: $topbar-item-color;
+      display: flex;
+      align-items: center;
+      height: $topbar-height;
+      cursor: pointer;
+
+      &:hover {
+        color: $topbar-item-hover-color;
+      }
+    }
+
+    // Topbar Search from
+    .app-search {
+      form {
+        .form-control {
+          color: $topbar-item-color;
+          background-color: $topbar-search-bg;
+
+          &::placeholder {
+            color: $topbar-item-color;
+          }
+        }
+
+        span.search-icon {
+          color: $topbar-item-color;
+        }
+      }
+    }
+  }
+}
+
+// Topbar Search from
+.app-search {
+  position: relative; // static 대신 relative로 변경
+  overflow-y: visible; // dropdown이 잘리면 visible로 변경
+
+  form {
+    display: flex;
+    overflow: visible; // 드롭다운이 잘리지 않게 변경
+    align-items: center;
+    position: relative;
+
+    .form-control {
+      border: none;
+      height: $input-height;
+      padding-right: 40px;
+      padding-left: 20px;
+      background-color: var(--#{$prefix}secondary-bg);
+      box-shadow: none;
+    }
+
+    span.search-icon {
+      position: absolute;
+      z-index: 4;
+      font-size: 20px;
+      line-height: 38px;
+      right: 10px;
+      top: 0;
+      color: var(--#{$prefix}secondary);
+    }
+
+    .input-group-text {
+      margin-left: 0;
+      z-index: 4;
+    }
+
+    .dropdown-menu {
+      z-index: 1060;
+      position: absolute; // 드롭다운이 잘리는 문제 해결
+      top: 100%; // input 아래로 정렬
+      left: 0;
+      width: 100%; // 검색창과 동일한 너비
+      display: block;
+    }
+  }
+}
+
+
+.nav-user {
+  padding: 0 12px !important;
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+html[data-topbar-color="brand"],
+html[data-topbar-color="dark"],
+html[data-bs-theme="dark"] {
+  .navbar-custom {
+    .logo-box {
+      .logo-light {
+        display: block;
+      }
+
+      .logo-dark {
+        display: none;
+      }
+    }
+  }
+}
+
+// Topbar light/Dark Mode icon
+html[data-bs-theme="dark"] {
+  #light-dark-mode {
+    .ri-moon-line {
+      &::before {
+        content: "\f1bf";
+      }
+    }
+  }
+}
+
+//  Topbar Menu Toggle button
+.button-toggle-menu {
+  border: none;
+  color: $topbar-item-color;
+  width: 60px;
+  height: $topbar-height;
+  background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+// fullscreen exit icon
+.fullscreen-enable {
+  .fe-maximize::before {
+    content: "\e88d";
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar-custom {
+    .button-toggle-menu {
+      width: auto;
+    }
+
+    .logo-box {
+      display: none !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-custom {
+    .topbar-menu {
+      position: initial;
+    }
+
+    .dropdown {
+      position: static;
+
+      .dropdown-menu {
+        left: 10px !important;
+        right: 10px !important;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .navbar-custom {
+    padding: 0 $spacer * 0.5;
+
+    .logo-box {
+      display: flex;
+
+      .logo-lg {
+        display: none;
+      }
+
+      .logo-sm {
+        display: block;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .navbar-custom {
+    .logo-box {
+      display: none;
+    }
+  }
+}

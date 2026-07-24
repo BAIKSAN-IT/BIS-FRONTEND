@@ -1,0 +1,52 @@
+//
+// tabletMain.scss
+//
+
+html,
+body {
+  height: 100%;
+  min-height: 700px;
+}
+
+.scrollLock {
+  overflow: hidden;
+}
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink-effect 1s step-end infinite;
+}
+
+.parent-row {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+
+.parent-row:hover {
+  background-color: #e2e6ea;
+}
+
+.child-row {
+  background-color: #f0f8ff;
+  padding-left: 20px;
+  transition: all 0.3s ease;
+}
+
+.expanded-row {
+  background-color: #d1e7dd;
+}
+
+.toggle-icon {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.expanded-row .toggle-icon {
+  transform: rotate(90deg);
+}
